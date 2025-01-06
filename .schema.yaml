@@ -1,0 +1,13 @@
+---
+sda: include('sda', required=False)
+defaults: map(required=False)
+---
+sda:
+  ise: include('ise', required=False)
+  catalyst_center: include('catalyst_center', required=False)
+
+catalyst_center:
+  sites: include('sites', required=False)
+
+ise:
+  trust_sec: include('trust_sec', required=False)
