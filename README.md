@@ -1,3 +1,3 @@
 # SD-Access as Code - Validation Examples
 
-The goal of this example is to allow users to allow users to instantiate network fabrics in minutes using an easy to use, opinionated data model. It takes away the complexity of having to deal with references, dependencies or loops. By completely separating data (defining variables) from logic (infrastructure declaration), it allows the user to focus on describing the intended configuration while using a set of maintained and tested Terraform Modules without the need to understand the low-level ISE and CatalystCenter APIs.
+The goal of this example repository is to provide users with a comprehensive framework for performing syntax and semantic validations within the context of SD-Access as Code. By leveraging these examples, users can ensure that configurations are both syntactically correct and semantically valid, enabling faster and more reliable deployment of network fabrics.

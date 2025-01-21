@@ -1,13 +1,56 @@
 ---
-sda: include('sda', required=False)
+catalyst_center: include('catalyst_center', required=False)
 defaults: map(required=False)
 ---
-sda:
-  ise: include('ise', required=False)
-  catalyst_center: include('catalyst_center', required=False)
-
 catalyst_center:
   sites: include('sites', required=False)
+  network_settings: include('network_settings', required=False)
 
-ise:
-  trust_sec: include('trust_sec', required=False)
+sites:
+  areas: list(include('site_areas'), required=False)
+  buildings: list(include('site_buildings'), required=False)
+  floors: list(include('site_floors'), required=False)
+
+site_areas:
+  name: str()
+  parent_name: str()
+  ip_pools_reservations: list(str(), required=False)
+
+site_buildings:
+  name: str()
+  parent_name: str()
+  latitude: num(required=False)
+  longitude: num(required=False)
+  address: str(required=False)
+  country: str(required=False)
+  ip_pools_reservations: list(str(), required=False)
+
+site_floors:
+  name: str()
+  parent_name: str()
+  floor_number: int(required=False)
+  height: int(required=False)
+  length: int(required=False)
+  rf_model: enum('Cubes And Walled Offices', 'Drywall Office Only', 'Indoor High Ceiling', 'Outdoor Open Space', required=False)
+  width: int(required=False)
+
+network_settings:
+  ip_pools: list(include('ns_ip_pools'), required=False)
+
+ns_ip_pools:
+  name: str()
+  ip_address_space: enum('IPv4', 'IPv6')
+  type: enum('generic', 'tunnel', required=False)
+  dhcp_servers: list(ip(), required=False)
+  dns_servers: list(ip(), required=False)
+  gateway: str(required=False)
+  ip_pool_cidr: ip(required=False)
+  ip_pools_reservations: list(include('ns_ip_pools_reservations'), required=False)
+
+ns_ip_pools_reservations:
+  name: str()
+  prefix_length: int(min=1, max=32, required=False)
+  subnet: ip(required=False)
+  type: enum('generic', 'LAN', 'WAN', 'management', 'service', required=False)
+  dhcp_servers: list(ip(), required=False)
+  dns_servers: list(ip(), required=False)
