@@ -1,7 +1,7 @@
 import ipaddress
 
 class Rule:
-    id = "104"
+    id = "103"
     description = "Verify IP Pool subnet overlap"
     severity = "HIGH"
 
@@ -11,7 +11,6 @@ class Rule:
         try:
             pools_subnets = []
             for pool in data["catalyst_center"]["network_settings"]["ip_pools"]:
-                print(pool)
                 pools_subnets.append(ipaddress.ip_network(pool["ip_pool_cidr"], strict=False))
             for idx, subnet in enumerate(pools_subnets):
                 if idx + 1 >= len(pools_subnets):
