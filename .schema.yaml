@@ -31,7 +31,14 @@ site_floors:
   floor_number: int(required=False)
   height: int(required=False)
   length: int(required=False)
-  rf_model: enum('Cubes And Walled Offices', 'Drywall Office Only', 'Indoor High Ceiling', 'Outdoor Open Space', required=False)
+  rf_model: >
+    enum(
+      'Cubes And Walled Offices',
+      'Drywall Office Only',
+      'Indoor High Ceiling',
+      'Outdoor Open Space',
+      required=False
+    )
   width: int(required=False)
 
 network_settings:
@@ -45,7 +52,8 @@ ns_ip_pools:
   dns_servers: list(ip(), required=False)
   gateway: str(required=False)
   ip_pool_cidr: ip(required=False)
-  ip_pools_reservations: list(include('ns_ip_pools_reservations'), required=False)
+  ip_pools_reservations: >
+    list(include('ns_ip_pools_reservations'), required=False)
 
 ns_ip_pools_reservations:
   name: str()
