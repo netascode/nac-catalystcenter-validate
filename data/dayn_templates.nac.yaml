@@ -1,0 +1,32 @@
+catalyst_center:
+  templates:
+    tags:
+      - name: vlan
+      - name: layer2
+    projects:
+      - name: ENTERPRISE_SWITCHING_PROJECT
+        description: Enterprise switching templates for campus deployment
+        dayn_templates:
+          - name: vlan_management
+            version: "1.0"
+            description: VLAN creation and management template
+            language: JINJA
+            device_types:
+              - product_family: Switches and Hubs
+                product_series: Cisco Catalyst 9500 Series Switches
+                product_type: Cisco Catalyst C9500-24Y4C Switch
+            software_type: IOS-XE
+            software_version: "17.09.04a"
+            variables:
+              - name: VLAN_LIST
+                required: true
+                data_type: STRING
+                hint_text: "Comma-separated VLAN IDs"
+              - name: VLAN_NAMES
+                required: true
+                data_type: STRING
+                hint_text: "Comma-separated VLAN names"
+            tags:
+              - vlan
+              - layer2
+            redeploy_template: ON_CHANGE

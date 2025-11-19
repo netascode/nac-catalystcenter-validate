@@ -1,0 +1,35 @@
+---
+catalyst_center:
+  sites:
+    areas:
+      - name: LatAm
+        parent_name: Global
+      - name: Colombia
+        parent_name: Global/LatAm
+      - name: Mexico
+        parent_name: Global/LatAm
+      - name: Bogota
+        parent_name: Global/LatAm/Colombia
+        cli_credentials: BOGOTA_CLI_ADMIN
+        snmpv2_read_credentials: BOGOTA_SNMP_READ
+        network_settings:
+          network: BOGOTA_NETWORK_SETTINGS
+    buildings:
+      - name: Edificio Tierra Firme 
+        latitude: 4.69313 
+        longitude: -74.03469
+        address: Ak 9 115-30, Bogotá, Colombia
+        country: Colombia
+        parent_name: Global/LatAm/Colombia/Bogota
+        ip_pools_reservations:
+          - DOT_CORP
+          - ST_CORP
+          - WCP_CORP
+          - ADM_CORP
+    floors:
+      - name: PISO_14
+        floor_number: 14
+        parent_name: Global/LatAm/Colombia/Bogota/Edificio Tierra Firme
+      - name: PISO_15
+        floor_number: 15
+        parent_name: Global/LatAm/Colombia/Bogota/Edificio Tierra Firme

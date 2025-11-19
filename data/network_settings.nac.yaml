@@ -1,0 +1,31 @@
+catalyst_center:
+  network_settings:
+    device_credentials:
+      cli_credentials:
+        - name: BOGOTA_CLI_ADMIN
+          username: netadmin
+          password: BogotaAdmin456!
+          enable: BogotaEnable456!
+      snmpv2_read_credentials:
+        - name: BOGOTA_SNMP_READ
+          description: "Bogota sites SNMP read access"
+          read_community: BogotaReadComm789
+    aaa_servers:
+      - name: BOGOTA_AAA_SETTINGS
+        network_aaa:
+          server_type: ISE
+          protocol: RADIUS
+          primary_ip: 198.18.133.27
+    network:
+      - name: BOGOTA_NETWORK_SETTINGS
+        timezone: America/Bogota
+        dhcp_servers:
+          - 192.1.1.1
+          - 192.1.1.1
+        dns_servers:
+          - 8.8.8.8
+          - 8.8.4.4
+        domain_name: bgta.company.local
+        ntp_servers:
+          - 192.1.1.5
+          - 192.1.1.6

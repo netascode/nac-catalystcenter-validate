@@ -1,0 +1,24 @@
+---
+catalyst_center:
+  network_settings:
+    ip_pools:
+      - name: BGTA_CORP_POOL
+        ip_address_space: IPv4
+        ip_pool_cidr: 10.201.0.0/16
+        dhcp_servers:
+          - 10.201.0.1
+        dns_servers:
+          - 10.201.0.1
+        ip_pools_reservations:
+          - name: DOT_CORP
+            prefix_length: 24
+            subnet: 10.201.1.0
+          - name: ST_CORP
+            prefix_length: 24
+            subnet: 10.201.2.0
+          - name: WCP_CORP
+            prefix_length: 24
+            subnet: 10.201.3.0
+          - name: ADM_CORP
+            prefix_length: 24
+            subnet: 10.201.4.0

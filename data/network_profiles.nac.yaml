@@ -1,0 +1,18 @@
+catalyst_center:
+  network_profiles:
+    wireless:
+      - name: WIRELESS_PROFILE
+        ssid_details:
+          - name: Guest_SSID
+            enable_fabric: true
+            enable_flex_connect: false
+        sites:
+          - Global/LatAm/Colombia/Bogota
+    switching:
+      - name: SDA SWITCH PROFILE
+        # onboarding_templates:
+        #   - onboarding_template
+        dayn_templates:
+          - vlan_management
+        sites:
+          - Global/LatAm/Colombia/Bogota
