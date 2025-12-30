@@ -13,7 +13,7 @@ Get CatalystCenter Token
     Create Session   CatalystCenter_Session   %{CC_URL}   auth=${auth}   verify=${verify}   headers={"Accept": "application/json", "Content-Type": "application/json"}
     ${response}=  POST On Session   CatalystCenter_Session   /api/system/v1/auth/token
     ${token}=     Set Variable   ${response.json()["Token"]}
-    [Return]   ${token}
+    RETURN   ${token}
 
 Login CatalystCenter
     ${token}=   Get CatalystCenter Token
