@@ -13,7 +13,7 @@ sites:
 
 site_areas:
   name: str()
-  parent_name: str()
+  parent_name: str(required=False)
   ip_pools_reservations: list(str(), required=False)
 
 site_buildings:
