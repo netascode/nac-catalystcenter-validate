@@ -18,7 +18,7 @@ site_areas:
 
 site_buildings:
   name: str()
-  parent_name: str()
+  parent_name: str(required=False)
   latitude: num(required=False)
   longitude: num(required=False)
   address: str(required=False)
