@@ -1,6 +1,6 @@
 ---
 catalyst_center: include('catalyst_center', required=False)
-defaults: map(required=False)
+defaults: any(required=False)
 ---
 catalyst_center:
   sites: include('sites', required=False)
@@ -40,6 +40,8 @@ site_floors:
       required=False
     )
   width: int(required=False)
+  ip_pools_reservations: list(str(), required=False)
+  units_of_measure: enum('feet', 'meters', required=False)
 
 network_settings:
   ip_pools: list(include('ns_ip_pools'), required=False)
@@ -47,7 +49,7 @@ network_settings:
 ns_ip_pools:
   name: str()
   ip_address_space: enum('IPv4', 'IPv6')
-  type: enum('generic', 'tunnel', required=False)
+  type: enum('Generic', 'Tunnel', required=False)
   dhcp_servers: list(ip(), required=False)
   dns_servers: list(ip(), required=False)
   gateway: str(required=False)
@@ -57,8 +59,9 @@ ns_ip_pools:
 
 ns_ip_pools_reservations:
   name: str()
-  prefix_length: int(min=1, max=32, required=False)
+  prefix_length: int(min=1, max=128, required=False)
   subnet: ip(required=False)
-  type: enum('generic', 'LAN', 'WAN', 'management', 'service', required=False)
+  gateway: ip(required=False)
+  type: enum('Generic', 'LAN', 'WAN', 'management', 'service', required=False)
   dhcp_servers: list(ip(), required=False)
   dns_servers: list(ip(), required=False)
